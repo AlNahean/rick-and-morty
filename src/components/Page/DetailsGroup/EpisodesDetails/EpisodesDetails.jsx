@@ -14,7 +14,6 @@ const EpisodesDetails = () => {
     let { data } = await axios.get(
       `https://rickandmortyapi.com/api/episode/${id}`
     );
-    console.log(data);
     setepisodesData(data);
 
     let fetchedCharacters = await Promise.all(
@@ -23,7 +22,6 @@ const EpisodesDetails = () => {
         return fetched.data;
       })
     );
-    await console.log(fetchedCharacters, "fetchedCharacters");
 
     await setepisodesData({ ...data, fetchedCharacters });
   };

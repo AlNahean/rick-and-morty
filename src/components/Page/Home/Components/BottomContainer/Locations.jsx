@@ -1,63 +1,62 @@
 import React, { useState, useLayoutEffect } from "react";
-import "./Episodes.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
-
-import RectSvgBox from "../../../Shared/Components/RectSvgCard/RectSvgCard";
 // import "swiper/css";
+import SwiperCore, { Navigation } from "swiper";
+import "./Locations.scss";
+import RectSvgBox from "../../../Shared/Components/RectSvgCard/RectSvgCard";
 import { useGlobalContext } from "../../../../Context";
 import axios from "axios";
 import { Link } from "react-router-dom";
-const Episodes = () => {
+
+const Locations = () => {
   const { colCount, setColCount } = useGlobalContext();
-  const [episodesData, setEpisodesData] = useState([]);
+  const [locationsData, setLocationsData] = useState([]);
 
   useLayoutEffect(() => {
-    const getEpisodes = async () => {
-      let { data } = await axios.get(
-        "https://rickandmortyapi.com/api/episode?page=1"
+    const getLocations = async () => {
+      const { data } = await axios.get(
+        "https://rickandmortyapi.com/api/location?page=1"
       );
-      setEpisodesData(data.results);
-      console.log(data);
+      setLocationsData(data.results);
     };
-
-    getEpisodes();
+    getLocations();
     return () => {};
   }, []);
   return (
-    <div className=" episodes-slide-wrapper mt-3">
+    <div className=" locations-slide-wrapper mt-3">
       <div className=" slide-header w-100 d-flex justify-content-between align-items-center">
         <div>
-          <h5>Episodes</h5>
+          <h5>Location</h5>
         </div>
         <div>
           <Link
-            to={`/episodes?page=1`}
+            to={`/locations?page=1`}
             className=" btn gradiant-bg-and-semi-rounded-border link-decoration-none"
           >
             See more
           </Link>
         </div>
       </div>
-      <div className=" h-100 w-100 center">
+      <div className=" w-100 ">
         <Swiper
           spaceBetween={50}
           slidesPerView={colCount.rectColNum}
           navigation
           modules={[Navigation]}
         >
-          {episodesData.map((item) => {
-            let { episode, name, id } = item;
+          {locationsData.map((item, index) => {
+            let { id, name } = item;
             return (
-              <SwiperSlide>
+              <SwiperSlide key={index}>
                 <Link
-                  to={`/episode-details/${id}`}
-                  className="link-decoration-none"
+                  to={`/location-details/${id}`}
+                  className=" link-decoration-none"
                 >
                   <RectSvgBox>
+                    {/* <div className=" item"> </div> */}
                     <div className=" p-3">
-                      <p className=" mb-0">{episode}</p>
-                      <h3 className="svg-card-text-limit">{name}</h3>
+                      <h6 className=" ">#{id}</h6>
+                      <h4 className="svg-card-text-limit mb-0">{name}</h4>
                     </div>
                   </RectSvgBox>
                 </Link>
@@ -70,4 +69,4 @@ const Episodes = () => {
   );
 };
 
-export default Episodes;
+export default Locations;

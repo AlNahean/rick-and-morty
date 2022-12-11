@@ -51,14 +51,12 @@ const Cast = () => {
           navigation
           slidesPerView={colCount.squareColNum}
           keyboard
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
           modules={[Navigation, Keyboard]}
         >
           {castsData.map((item, index) => {
             let { name, image } = item;
             return (
-              <SwiperSlide key={item} virtualIndex={index}>
+              <SwiperSlide key={index} virtualIndex={index}>
                 <Link
                   to={`/cast-details/${item.id}`}
                   className="link-decoration-none"

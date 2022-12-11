@@ -1,19 +1,28 @@
 import React from "react";
-import Episodes from "./Episodes";
-import Locations from "./Locations";
+
 import "./Hero.scss";
 import Cast from "./Cast";
 
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 const Hero = () => {
   return (
     <div className=" hero-section ">
-      <div className=" container h-100 hero-container">
+      <div className=" container hero-container">
         <div className=" hero-texts-wrapper center align-items-start align-items-md-center flex-column  position-relative">
+          {/*
+           **********************************************************************************************************************
+           ***************************************** Absolute Positioned Image  **************************************************************
+           **********************************************************************************************************************
+           */}
           <div className=" gun-png-container">
             <img src="./MediaAsset/HomePage/HeroElements/Gun.png" alt="" />
           </div>
+
+          {/*
+           **********************************************************************************************************************
+           ***************************************** Top Line Hero Text  **************************************************************
+           **********************************************************************************************************************
+           */}
           <div className=" d-flex hero-texts-container">
             <div className=" hero-texts-item hero-the">
               <h1>The</h1>
@@ -33,10 +42,21 @@ const Hero = () => {
             <div className=" hero-texts-item ">
               <h1 className=" gradiant-bg-clip hero-rick-text">Rick</h1>
             </div>
-            <div className=" hero-texts-item hero-and">
+            <div className=" hero-texts-item hero-and ">
+              <img
+                src="./MediaAsset/HomePage/HeroElements/pill.png"
+                alt=""
+                className=" hero-pill-png"
+              />
               <h1>&</h1>
             </div>
           </div>
+
+          {/*
+           **********************************************************************************************************************
+           ***************************************** Bottom Line Hero Text  **************************************************************
+           **********************************************************************************************************************
+           */}
           <div className=" d-flex hero-texts-container ">
             <div className=" hero-texts-item hero-text-morty">
               <h1>Morty</h1>
@@ -45,7 +65,13 @@ const Hero = () => {
               <h1>Wiki</h1>
             </div>
           </div>
-          <div className=" row">
+
+          {/*
+           **********************************************************************************************************************
+           ***************************************** Last Button and texts  **************************************************************
+           **********************************************************************************************************************
+           */}
+          <div className=" row hero-bottom-elements">
             <div className=" col-12 col-md-6 mt-3">
               <div className=" d-flex justify-content-start align-content-md-end align-items-center h-100">
                 <div className=" rounded-pill p-2 ps-4 pe-4 rm-gradient-bg">
@@ -69,6 +95,12 @@ const Hero = () => {
             </div>
           </div>
         </div>
+
+        {/*
+         **********************************************************************************************************************
+         ***************************************** Cast Attached to hero  **************************************************************
+         **********************************************************************************************************************
+         */}
         <Cast />
       </div>
     </div>

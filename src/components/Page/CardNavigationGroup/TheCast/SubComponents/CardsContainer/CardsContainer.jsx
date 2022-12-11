@@ -11,13 +11,14 @@ const CardsContainer = ({ castsData }) => {
             let { image, name, id } = item;
             return (
               <Link
+                key={id}
                 to={`/cast-details/${id}`}
                 className=" col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 position-relative mb-4 link-decoration-none"
               >
                 <SquareSvgBox>
                   <div className=" card-body">
                     <img src={image} className=" w-100 h-auto" />
-                    <p className=" mb-0 mt-3 svg-card-text-limit">{name}</p>
+                    <h6 className=" mb-0 mt-3 svg-card-text-limit">{name}</h6>
                   </div>
                 </SquareSvgBox>
               </Link>

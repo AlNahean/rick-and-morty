@@ -12,7 +12,6 @@ const LocationsDetails = () => {
     let { data } = await axios.get(
       `https://rickandmortyapi.com/api/location/${id}`
     );
-    console.log(data);
     setLocationData(data);
 
     let fetchedResidents = await Promise.all(
@@ -21,7 +20,6 @@ const LocationsDetails = () => {
         return fetched.data;
       })
     );
-    await console.log(fetchedResidents, "fetchedResidents");
 
     await setLocationData({ ...data, fetchedResidents });
   };

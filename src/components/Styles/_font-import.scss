@@ -1,0 +1,27 @@
+@font-face {
+  font-family: travels-regular;
+  src: url(../../../public/Font/TTTravels-Regular.ttf);
+}
+@font-face {
+  font-family: travels-bold-italic;
+  src: url(../../../public/Font/TTTravels-BoldItalic.ttf);
+}
+@font-face {
+  font-family: hollow-font;
+  src: url(../../../public/Font/HollowFont/SanMarinoBeach-2OOLW.ttf);
+}
+
+// init
+body {
+  font-family: " travels-regular", "Franklin Gothic Medium", "Arial Narrow",
+    Arial, sans-serif;
+}
+.hero-texts-container {
+  font-family: " travels-bold-italic", "Franklin Gothic Medium", "Arial Narrow",
+    Arial, sans-serif;
+  font-style: italic;
+}
+.hollow-text-name {
+  font-family: "hollow-font", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif !important;
+}

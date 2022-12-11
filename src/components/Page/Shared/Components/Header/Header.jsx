@@ -9,12 +9,7 @@ const Header = () => {
         to="/"
         className=" container d-flex justify-content-center align-items-center header fixed-top"
       >
-        <img
-          src="/MediaAsset/Logo.png"
-          alt=""
-          srcset=""
-          className=" h-75 w-auto"
-        />
+        <img src="/MediaAsset/Logo.png" alt="" className=" h-75 w-auto" />
       </Link>
     </div>
   );

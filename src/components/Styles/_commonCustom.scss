@@ -231,6 +231,15 @@
     display: none;
   }
 }
+
+.info-icon {
+  color: var(--rm-color-yellowgreen);
+  font-size: 2.6rem;
+  & > * {
+    // height: 40px;
+    // width: 40px;
+  }
+}
 .swiper-button-prev {
   background-color: white;
   height: 40px;

@@ -65,7 +65,6 @@ const TheCast = () => {
     setCastsPageInfo(data.info);
   };
   useLayoutEffect(() => {
-    console.log(params, "params");
     let { page } = Object.fromEntries([...searchParams]);
     setPageCount(page);
 

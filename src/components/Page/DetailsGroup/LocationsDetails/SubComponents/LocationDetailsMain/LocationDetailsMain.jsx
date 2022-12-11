@@ -2,6 +2,10 @@ import React from "react";
 import GradientBox from "../../../../Shared/Components/GradientBox/GradientBox";
 import "./LocationDetailsMain.scss";
 import Residents from "./Residents";
+
+import { GiBlackHoleBolas } from "react-icons/gi";
+import { GiRingedPlanet } from "react-icons/gi";
+
 const LocationDetailsMain = ({ locationData }) => {
   return (
     <div className=" location-details-main-wrapper">
@@ -17,16 +21,22 @@ const LocationDetailsMain = ({ locationData }) => {
           <div className=" col-12 col-md-6 mb-4">
             <GradientBox>
               <div className=" card-body">
-                <p>Dimension</p>
-                <h2>{locationData?.dimension}</h2>
+                <div className=" info-icon mb-2">
+                  <GiBlackHoleBolas />
+                </div>
+                <p className=" mb-2">Dimension</p>
+                <h3>{locationData?.dimension}</h3>
               </div>
             </GradientBox>
           </div>
           <div className=" col-12 col-md-6 mb-4">
             <GradientBox>
               <div className=" card-body">
-                <p>Type</p>
-                <h2>{locationData?.type}</h2>
+                <div className=" info-icon mb-2 ">
+                  <GiRingedPlanet />
+                </div>
+                <p className=" mb-2">Type</p>
+                <h3>{locationData?.type}</h3>
               </div>
             </GradientBox>
           </div>

@@ -9,6 +9,34 @@
   .container {
     height: 100%;
   }
+  .bg-star {
+    position: absolute;
+    height: auto;
+    width: 100%;
+    bottom: 0px;
+  }
+
+  .cast-name-name {
+    color: var(--rm-color-skyblue);
+  }
+  .hollow-text-name-container {
+    position: absolute;
+    // height: 100%;
+    // width: ;
+    top: 45vh;
+    left: -10vw;
+    transform: translate(-0%, -50%);
+
+    & > div {
+      position: absolute;
+      transform: rotate(-90deg);
+      font-size: 3rem;
+      opacity: 0.4;
+    }
+    h1 {
+      white-space: nowrap;
+    }
+  }
 
   .cast-info {
     // height: calc(90vh - var(--header-height));

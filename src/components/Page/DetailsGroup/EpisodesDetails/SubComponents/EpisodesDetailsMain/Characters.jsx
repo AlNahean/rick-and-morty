@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 const Characters = ({ characters }) => {
   const { colCount } = useGlobalContext();
 
-  console.log(characters, "characters");
   return (
     <div className=" col-12">
       <div className=" d-flex justify-content-between align-items-center">
@@ -27,7 +26,7 @@ const Characters = ({ characters }) => {
           characters.map((item, index) => {
             let { name, image } = item;
             return (
-              <SwiperSlide key={item} virtualIndex={index}>
+              <SwiperSlide key={item.id} virtualIndex={index}>
                 <Link
                   to={`/cast-details/${item.id}`}
                   className="link-decoration-none"

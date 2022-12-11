@@ -62,12 +62,10 @@ const Locations = () => {
     let { data } = await axios.get(
       `https://rickandmortyapi.com/api/location?page=${page}`
     );
-    console.log(data);
     setLocationsData(data.results);
     setLocationsPageInfo(data.info);
   };
   useLayoutEffect(() => {
-    console.log(params);
     let { page } = Object.fromEntries([...searchParams]);
     setPageCount(page);
 

@@ -5,7 +5,7 @@ import Hero from "./Components/Hero/Hero";
 import ProxySvgGradient from "../Shared/Components/ProxySvgGradiant/ProxySvgGradiant.jsx";
 
 import "./Home.scss";
-import BottomContainer from "./Components/Hero/BottomContainer";
+import BottomContainer from "./Components/BottomContainer/BottomContainer.jsx";
 
 const Home = () => {
   const { test } = useGlobalContext();

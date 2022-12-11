@@ -21,17 +21,13 @@ const CastDetails = () => {
     data.origin.id = originId;
     data.location.id = locationId;
 
-    console.log(data, "data");
     setCastDetails(data);
 
     let episodes = data.episode;
 
-    // console.log(episodes);
-
     let fetchedLocation = await Promise.all(
       episodes.map(async (item) => {
         let fetched = await axiosGet(item);
-        // console.log(fetched);
         return fetched;
       })
     );

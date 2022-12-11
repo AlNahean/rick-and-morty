@@ -14,23 +14,27 @@ const CastDetailsMain = ({ castDetails }) => {
     location,
     fetchedLocation,
   } = castDetails;
-  // console.log("aa", castDetails);
   return (
     <div className=" cast-details-main-wrapper">
-      <div className=" cast-details-container container">
+      <div className=" cast-details-container container position-relative">
+        <img
+          src="/MediaAsset/CastDetails/Star.png"
+          alt="bg-star"
+          className=" bg-star"
+        />
+        <div className=" hollow-text-name-container d-none d-lg-block">
+          <div>
+            <h1 className=" hollow-text-name">{name}</h1>
+          </div>
+        </div>
         <div className=" row">
           <div className=" col-12 col-md-6 center ">
             <div className=" d-flex flex-column justify-content-center align-items-center ">
-              <h1 className=" mb-4">{name}</h1>
+              <h1 className=" mb-4 cast-name-name ">{name}</h1>
               <div className=" w-75">
                 <GradientBox>
                   <div className=" card-body p-5">
-                    <img
-                      src={image}
-                      className=" w-100 h-auto"
-                      alt=""
-                      srcset=""
-                    />
+                    <img src={image} className=" w-100 h-auto" alt="" />
                   </div>
                 </GradientBox>
               </div>
@@ -155,7 +159,7 @@ const CastDetailsMain = ({ castDetails }) => {
                     </defs>
                   </svg>
 
-                  <p className=" mb-0">Episodes</p>
+                  <p className=" mb-0">Episode(S)</p>
 
                   <div className=" episodes-list d-flex flex-column">
                     {fetchedLocation &&
@@ -163,7 +167,8 @@ const CastDetailsMain = ({ castDetails }) => {
                         return (
                           <Link
                             to={`/episode-details/${item.id}`}
-                            className=" mb-0 link-decoration-none h4"
+                            key={item.id}
+                            className=" mb-2 link-decoration-none h4"
                           >
                             {item.name}
                           </Link>

@@ -1,15 +1,9 @@
 import React, { useState, useLayoutEffect } from "react";
 import "./NavPagination.scss";
 
-import { useParams } from "react-router-dom";
-
 import { HiArrowSmRight, HiArrowSmLeft } from "react-icons/hi";
 const NavPagination = ({ pageInfo, handleNavClick, pageCount }) => {
-  const params = useParams();
-
   useLayoutEffect(() => {
-    console.log(params, "params");
-
     return () => {};
   }, []);
   return (
