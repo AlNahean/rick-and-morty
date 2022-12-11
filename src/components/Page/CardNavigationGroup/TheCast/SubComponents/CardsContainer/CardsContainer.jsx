@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useState } from "react";
 import SquareSvgBox from "../../../../Shared/Components/SquareSvgCard/SquareSvgCard";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./CardsContainer.scss";
 const CardsContainer = ({ castsData }) => {
   return (
     <div className=" cards-container-wrapper">
