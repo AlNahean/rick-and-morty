@@ -1,0 +1,11 @@
+.homepage-wrapper {
+  // background-image: url("../../../../public/MediaAsset/HomePage/BackgroundElements/Background.png");
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--rm-color-dark);
+  background-position: center;
+  background-position: 15%;
+  background-size: cover;
+  color: var(--my-color);
+}

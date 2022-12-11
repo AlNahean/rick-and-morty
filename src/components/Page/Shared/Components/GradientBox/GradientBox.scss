@@ -1,0 +1,47 @@
+.gradiant-box-transparent-rounded {
+  position: relative;
+  color: white;
+  // height: 20vh;
+
+  border: 2px solid transparent;
+  border-radius: 0.8rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--rm-card-bg-gradiant);
+    background-color: var(--rm-color-yellowgreen);
+    opacity: 0.02;
+    border-radius: inherit;
+  }
+
+  &::before {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: var(--rm-card-bg-gradiant);
+
+    border: inherit;
+    border-radius: inherit;
+
+    mask: linear-gradiant(white, white), padding-box,
+      linear-gradiant(white, white);
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+  }
+}
+
+.gradient-box-wrapper.card {
+  background-color: transparent;
+}

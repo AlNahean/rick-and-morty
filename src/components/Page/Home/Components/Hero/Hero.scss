@@ -1,0 +1,122 @@
+.hero-section {
+  height: calc(100vh);
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-image: url("../../../../../../public/MediaAsset/HomePage/BackgroundElements/Background.png");
+  padding-top: var(--header-height);
+
+  .hero-container {
+    // display: grid;
+    // grid-template-columns: 1fr;
+    // grid-template-rows: 4fr 2fr;
+    // grid-gap: 1rem;
+
+    //***********************************************************************************************
+    //************************** Hero Texts **************************************************************
+    //***********************************************************************************************
+
+    & > div {
+      width: 100%;
+      height: 100%;
+      //   background-color: red;
+    }
+
+    .hero-texts-wrapper {
+      height: 60%;
+
+      //gun-png-container
+      .gun-png-container {
+        position: absolute;
+        bottom: 5vh;
+        right: 0vw;
+        z-index: 0;
+
+        & > img {
+          height: 30vh;
+        }
+      }
+
+      // Hero-the
+      .hero-the {
+        .hero-the-bubble {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          height: 120%;
+          width: 120%;
+          transform: translate(-50%, -40%);
+        }
+      }
+      //hero-morty-png-container
+      .hero-morty-png-container {
+        height: 80%;
+        width: 80%;
+        .hero-morty-png {
+          height: 100%;
+          width: 100%;
+          max-height: calc(4rem + 3vw);
+        }
+      }
+      //hero-rick-text
+      .hero-rick-text {
+        background: var(--rm-hero-text-gradient-rick);
+        background-clip: text;
+        color: transparent;
+      }
+      .hero-and {
+        color: var(--rm-color-skyblue);
+      }
+      .hero-text-morty {
+        background: var(--rm-hero-text-gradient-morty);
+        background-clip: text;
+        color: transparent;
+      }
+      .hero-texts-container {
+        gap: 2vw;
+      }
+      .hero-texts-item {
+        // margin-right: 2rem;
+        position: relative;
+      }
+      h1 {
+        font-size: calc(2rem + 4vw);
+      }
+    }
+
+    //***********************************************************************************************
+    //*********************************************Cast
+    //***********************************************************************************************
+    .hero-cast-wrapper {
+      height: 40%;
+      // display: grid;
+      // display: grid;
+      // grid-template-columns: 1fr;
+      // grid-template-rows: 1fr 4fr;
+      // grid-gap: 1rem;
+
+      // width: 100%;
+      //   border: 1px solid red;
+      //   background-color: red;
+
+      & > div {
+        // background-color: red;
+        // border: 1px solid red;
+      }
+    }
+  }
+
+  //***********************************************************************************************
+  //*********************************************Cast
+  //***********************************************************************************************
+
+  //***********************************************************************************************
+  //*****************************Episodes*************************************************
+  //***********************************************************************************************
+  .episodes-slide-wrapper {
+    & > div {
+      //   background-color: red;
+      //   border: 1px solid red;
+    }
+  }
+}

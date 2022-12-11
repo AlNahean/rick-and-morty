@@ -1,0 +1,67 @@
+.cast-details-main-wrapper {
+  padding-top: var(--header-height);
+  min-height: 100vh;
+  // height: 100%;
+
+  .cast-details-container {
+  }
+
+  .container {
+    height: 100%;
+  }
+
+  .cast-info {
+    // height: calc(90vh - var(--header-height));
+    // min-height: calc(90vh - var(--header-height));
+    margin-top: 10vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 2.5fr;
+
+    gap: 1rem;
+    grid-template-areas:
+      " status species gender"
+      "origin origin origin"
+      "last-location last-location last-location"
+      "episodes episodes episodes";
+  }
+
+  .cast-info > div {
+    height: 100%;
+    width: 100%;
+  }
+
+  .image-icon {
+    height: 30px;
+    width: 30px;
+  }
+
+  .status {
+    grid-area: status;
+  }
+  .species {
+  }
+  grid-area: species;
+
+  .gender {
+    grid-area: gender;
+  }
+  .origin {
+    grid-area: origin;
+  }
+  .last-location {
+    grid-area: last-location;
+  }
+  .episodes {
+    grid-area: episodes;
+    .episodes-list {
+      // height: 40vh;
+      margin-top: 1rem;
+      width: 100%;
+      max-height: 20vh;
+      overflow-y: auto;
+      // overflow: auto;
+    }
+  }
+}

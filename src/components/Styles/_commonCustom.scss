@@ -1,0 +1,258 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.full-size {
+  height: 100%;
+  width: 100%;
+}
+.proxy-div {
+  height: 200vh;
+  width: 100%;
+  background-color: aqua;
+}
+.gradiant-bg-clip {
+  background: var(--my-gradiant-highlight);
+  background-clip: text;
+  color: transparent;
+}
+.gradiant-btn {
+  // border: 2px solid var(--my-gradiant-highlight);
+  border: 1px solid;
+  border-image-slice: 1;
+  border-width: 5px;
+  border-image-source: var(--my-gradiant-highlight);
+
+  border-radius: 1000rem;
+}
+.gradiant-rounded-btn {
+  border: double 3px transparent;
+  background-image: linear-gradient(black, black), var(--my-gradiant-highlight);
+  border-radius: 1rem;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// start
+
+.bg-skyblue {
+  background-color: var(--rm-color-skyblue);
+}
+.bg-yellowgreen {
+  background-color: var(--rm-color-yellowgreen);
+}
+.bg-dark {
+  background-color: var(--rm-color-dark);
+}
+
+.text-skyblue {
+  color: var(--rm-color-skyblue) !important;
+}
+.text-yellowgreen {
+  color: var(--rm-color-yellowgreen);
+}
+.text-dark {
+  color: var(--rm-color-dark);
+}
+
+.rm-gradient-bg {
+  background: var(--rm-card-bg-gradiant);
+}
+
+// gradiant transparent border
+
+.gradiant-bg-and-rounded-border {
+  position: relative;
+  color: white;
+  // height: 20vh;
+
+  border: 2px solid transparent;
+  border-radius: 2rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--rm-card-bg-gradiant);
+    background-color: var(--rm-color-yellowgreen);
+    opacity: 0.02;
+    border-radius: inherit;
+  }
+
+  &::before {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: var(--rm-card-bg-gradiant);
+
+    border: inherit;
+    border-radius: inherit;
+
+    mask: linear-gradiant(white, white), padding-box,
+      linear-gradiant(white, white);
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+  }
+}
+.gradiant-bg-and-semi-rounded-border {
+  position: relative;
+  color: white;
+  // height: 20vh;
+
+  border: 2px solid transparent;
+  border-radius: 0.4rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--rm-card-bg-gradiant);
+    background-color: var(--rm-color-yellowgreen);
+    opacity: 0.02;
+    border-radius: inherit;
+  }
+
+  &::before {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: var(--rm-card-bg-gradiant);
+
+    border: inherit;
+    border-radius: inherit;
+
+    mask: linear-gradiant(white, white), padding-box,
+      linear-gradiant(white, white);
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+  }
+}
+.gradiant-transparent-rounded-border {
+  position: relative;
+  color: white;
+  // height: 20vh;
+
+  border: 1px solid transparent;
+  border-radius: 2rem;
+
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   background-color: var(--rm-card-bg-gradiant);
+  //   background-color: var(--rm-color-yellowgreen);
+  //   opacity: 0.02;
+  //   border-radius: inherit;
+  // }
+
+  &::before {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: var(--rm-card-bg-gradiant);
+
+    border: inherit;
+    border-radius: inherit;
+
+    mask: linear-gradiant(white, white), padding-box,
+      linear-gradiant(white, white);
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+  }
+}
+
+.svg-card-text-limit {
+  max-width: 95%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.link-decoration-none {
+  text-decoration: none;
+  color: var(--my-color);
+  &:hover {
+    color: var(--my-color);
+  }
+}
+
+// Swiper slider Navigation Custom Code
+.swiper-button-next {
+  background-color: white;
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+  border-radius: 2rem;
+
+  &::before {
+    content: "";
+    background-image: url("../../../public//MediaAsset/arrow.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 100%;
+    height: 100%;
+    width: 100%;
+  }
+
+  &::after {
+    display: none;
+  }
+}
+.swiper-button-prev {
+  background-color: white;
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+  border-radius: 2rem;
+
+  &::before {
+    content: "";
+    background-image: url("../../../public//MediaAsset/arrow.svg");
+    transform: rotate(180deg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 100%;
+    height: 100%;
+    width: 100%;
+  }
+
+  &::after {
+    display: none;
+  }
+}
+.swiper-button-disabled {
+  display: none;
+}

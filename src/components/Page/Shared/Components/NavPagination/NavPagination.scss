@@ -1,0 +1,20 @@
+.nav-pagination-wrapper {
+  .nav-pagination-container {
+    gap: 1rem;
+  }
+  .nav-btn {
+    height: 2rem;
+    width: 2rem;
+    border: 1px solid var(--rm-color-skyblue);
+    background-color: var(--rm-color-skyblue);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+  }
+  .nav-btn-disabled {
+    border: 1px solid var(--rm-color-gray);
+    background-color: var(--rm-color-gray);
+  }
+}

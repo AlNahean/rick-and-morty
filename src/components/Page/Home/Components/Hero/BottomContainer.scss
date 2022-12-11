@@ -1,0 +1,26 @@
+.container-bottom-wrapper {
+  // background-image: url("../../../../../../public/MediaAsset/HomePage/BackgroundElements/Spiral.png");
+  // background-size: cover;
+  // background-position: 100%;
+  position: relative;
+
+  .spiral-image {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: auto;
+  }
+  .star-image {
+    opacity: 0.4;
+    position: absolute;
+    top: 10vh;
+    left: 2rem;
+    right: 2rem;
+    bottom: 0px;
+  }
+}
+.container-bottom {
+  //   background-position: 100%;
+  z-index: 10;
+}

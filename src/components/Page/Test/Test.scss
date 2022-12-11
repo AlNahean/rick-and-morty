@@ -1,0 +1,135 @@
+.test-page {
+  min-height: 100vh;
+  .card {
+    background-color: transparent !important;
+
+    border: 0px solid transparent;
+    // border-bottom-right-radius: 4rem;
+    cursor: grab;
+    cursor: grabbing;
+    // height: 20vh;
+
+    svg {
+      width: 100% !important;
+      height: 100%;
+
+      position: absolute;
+      inset: 0;
+      //   fill: linear-gradient(
+      //     331.82deg,
+      //     rgba(132, 247, 41, 0.7) -5.31%,
+      //     rgba(21, 191, 253, 0.7) 91.15%
+      //   );
+
+      //   fill: linear-gradient(
+      //     331.82deg,
+      //     var(--rm-color-yellowgreen) -5.31%,
+      //     var(--rm-color-skyblye) 91.15%
+      //   );
+      path {
+        // height: 100%;
+        // width: 100%;
+        // stroke: linear-gradient(
+        //   331.82deg,
+        //   rgba(132, 247, 41, 0.7) -5.31%,
+        //   rgba(21, 191, 253, 0.7) 91.15%
+        // );
+
+        // fill: red;
+
+        // stroke: red;
+        // background: linear-gradient(
+        //     331.82deg,
+        //     rgba(132, 247, 41, 0.7) -5.31%,
+        //     rgba(21, 191, 253, 0.7) 91.15%
+        //   ),
+        //   linear-gradient(
+        //     0deg,
+        //     rgba(255, 255, 255, 0.05),
+        //     rgba(255, 255, 255, 0.05)
+        //   );
+      }
+    }
+  }
+
+  .test-card {
+    height: 20vh;
+    background: var(--rm-card-bg-gradiant);
+    background: rgba(var(--rm-color-skyblue), 0.3);
+    background: #{"rgba(var(--rm-color-skyblue), 0.5)"};
+    filter: alpha(opacity=10);
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.1);
+    // opacity: 0.2;
+    // background-color: transparent !important;
+    // border: 1px solid red;
+    color: white;
+
+    // background: color-mix(in srgb, #000 80%, white);
+    background-color: color-mix(in srgb, #34c9eb 10%, white);
+
+    position: relative;
+    overflow: hidden;
+  }
+  .test-card > * {
+    // z-index: 2;
+  }
+  .test-card::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    background: var(--rm-card-bg-gradiant);
+    opacity: 0.1;
+    // z-index: 1;
+    transform: translate(0%, 100%);
+
+    transition: all 0.4s;
+  }
+  .test-card:hover::before {
+    transform: translate(0%, 0%);
+  }
+
+  .gradiant-transparent-border {
+    position: relative;
+    color: white;
+    height: 20vh;
+
+    border: 3px solid transparent;
+    border-radius: 1.4rem;
+
+    &::after {
+      content: "aaa";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--rm-card-bg-gradiant);
+      background-color: var(--rm-color-yellowgreen);
+      opacity: 0.02;
+      border-radius: inherit;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      background: var(--rm-card-bg-gradiant);
+
+      border: inherit;
+      border-radius: inherit;
+
+      mask: linear-gradiant(white, white), padding-box,
+        linear-gradiant(white, white);
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+:root {
+  --my-color: #fff;
+  --my-color-sc: hsl(0deg 0% 100% / 65%) (145, 162, 240);
+  --my-color-sc-2: #3b3e40(145, 162, 240);
+  --my-color2: #3b3e40;
+  --my-bg-color: #0f111a;
+  --my-bg-color-sc: #222834;
+
+  --rm-color-skyblue: rgb(20, 217, 229);
+  --rm-color-yellowgreen: #9dfe00;
+  --rm-color-dark: #191d29;
+  --rm-color-gray: gray;
+
+  --rm-card-bg-gradiant: linear-gradient(
+    45deg,
+    var(--rm-color-yellowgreen),
+    var(--rm-color-skyblue)
+  );
+  --rm-card-bg-gradiant-2: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--rm-color-yellowgreen) 80%, white),
+    var(--rm-color-yellowgreen),
+    var(--rm-color-skyblue)
+  );
+
+  --rm-hero-text-gradient-rick: linear-gradient(
+    90deg,
+    var(--rm-color-yellowgreen) 0%,
+    var(--rm-color-skyblue) 40%
+  );
+  --rm-hero-text-gradient-morty: linear-gradient(
+    90deg,
+    var(--rm-color-yellowgreen) 0%,
+    var(--rm-color-yellowgreen) 90%,
+    var(--rm-color-skyblue) 100%
+  );
+
+  --my-header-bg: #222834;
+  --my-header-bg-sc: rgba(65, 68, 70, 0.9);
+
+  --my-gradiant-highlight: linear-gradient(
+    90deg,
+    #d95e00 30%,
+    #ffa353,
+    #d95e00 70%
+  );
+
+  --header-height: 70px;
+}
