@@ -61,6 +61,26 @@ const AppProvider = ({ children }) => {
     };
   }, []);
 
+  const [showBg, setShowBg] = useState(false);
+  useLayoutEffect(() => {
+    const handleScroll = (e) => {
+      let scrollTop = window.scrollY;
+
+      if (scrollTop > 60) {
+        setShowBg(true);
+      } else {
+        setShowBg(false);
+      }
+    };
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <AppContext.Provider
       value={{
@@ -68,6 +88,8 @@ const AppProvider = ({ children }) => {
         test,
         colCount,
         setColCount,
+        showBg,
+        setShowBg,
       }}
     >
       {children}

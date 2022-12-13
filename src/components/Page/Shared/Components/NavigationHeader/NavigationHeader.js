@@ -9,9 +9,14 @@ const pageArray = [
   { id: 2, name: "Locations", link: "locations" },
   { id: 3, name: "Episodes", link: "episodes" },
 ];
-const NavigationHeader = ({ heading }) => {
+const NavigationHeader = ({
+  heading,
+  handleSearchInputChange,
+  searchInput,
+}) => {
   const navigate = useNavigate();
   const [showOptins, setShowOptions] = useState(false);
+
   return (
     <div className=" navigation-header-wrapper ">
       <div className="navigation-header-container container d-flex justify-content-between align-items-center text-white">
@@ -59,6 +64,10 @@ const NavigationHeader = ({ heading }) => {
                 type="text"
                 className=" search-input form-control"
                 placeholder=" Search "
+                value={searchInput.value}
+                onChange={(e) => {
+                  handleSearchInputChange(e);
+                }}
               />
             </div>
           </div>

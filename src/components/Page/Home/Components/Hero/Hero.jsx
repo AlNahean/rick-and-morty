@@ -4,6 +4,8 @@ import "./Hero.scss";
 import Cast from "./Cast";
 
 import "swiper/css";
+
+import { GrCirclePlay } from "react-icons/gr";
 const Hero = () => {
   return (
     <div className=" hero-section ">
@@ -74,16 +76,19 @@ const Hero = () => {
           <div className=" row hero-bottom-elements">
             <div className=" col-12 col-md-6 mt-3">
               <div className=" d-flex justify-content-start align-content-md-end align-items-center h-100">
-                <div className=" rounded-pill p-2 ps-4 pe-4 rm-gradient-bg">
-                  Watch Now
+                <div className=" watch-now-btn rounded-pill p-2 ps-4 pe-4 rm-gradient-bg d-flex align-items-center">
+                  <div className=" ms-2 me-2 watch-now-icon center">
+                    <GrCirclePlay />
+                  </div>
+                  <p className=" mb-0">Watch Now</p>
                 </div>
               </div>
             </div>
-            <div className=" col-12 col-md-6 mt-3">
+            <div className=" col-12 col-md-6 mt-3 d-flex align-items-center">
               <div className=" d-flex justify-content-start align-items-center ">
                 <div
-                  className=" text-md-center"
-                  style={{ maxWidth: "364px", fontSize: "0.7rem" }}
+                  className="center"
+                  style={{ maxWidth: "364px", fontSize: "0.8rem" }}
                 >
                   <p className=" mb-0 text-skyblue">
                     Brilliant but boozy scientist Rick hijacks his fretful

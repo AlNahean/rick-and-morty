@@ -16,6 +16,8 @@ const TheCast = () => {
   const [castsData, setCastsData] = useState([]);
   const [castsPageInfo, setCastsPageInfo] = useState([]);
   const [pageCount, setPageCount] = useState(1);
+  const [searchInput, setSearchInput] = useState({ value: "" });
+  const [loading, setIsLoading] = useState(false);
   const params = useParams();
 
   const getPageNum = (num) => {
@@ -37,7 +39,11 @@ const TheCast = () => {
       if (finalCount !== cachedCount) {
         // setPageCount(finalCount);
         // getCastsData(finalCount);
-        navigate(`/the-cast?page=${finalCount}`);
+        navigate(
+          `/the-cast?name=${
+            searchInput.value ? searchInput.value : ""
+          }&page=${finalCount}`
+        );
         window.scrollTo(0, 0);
       } else {
         console.log("do nothing");
@@ -50,32 +56,89 @@ const TheCast = () => {
       if (finalCount !== cachedCount) {
         // setPageCount(finalCount);
         // getCastsData(finalCount);
-        navigate(`/the-cast?page=${finalCount}`);
+        navigate(
+          `/the-cast?name=${
+            searchInput.value ? searchInput.value : ""
+          }&page=${finalCount}`
+        );
         window.scrollTo(0, 0);
       } else {
         console.log("do nothing");
       }
     }
   };
-  const getCastsData = async (page = 1) => {
-    let { data } = await axios.get(
-      `https://rickandmortyapi.com/api/character/?page=${page}`
-    );
-    setCastsData(data.results);
-    setCastsPageInfo(data.info);
+  const getCastsData = async () => {
+    try {
+      setIsLoading(true);
+      let { page, name = "" } = Object.fromEntries([...searchParams]);
+      if (name === undefined) {
+        name = "";
+      }
+      let { data } = await axios.get(
+        `https://rickandmortyapi.com/api/character/?${
+          name && `name=${name}`
+        }&page=${page}`
+      );
+
+      if (data?.error) {
+        setCastsData([]);
+        setCastsPageInfo({
+          count: 0,
+          pages: 1,
+          next: null,
+          prev: null,
+        });
+        setIsLoading(false);
+
+        return;
+      }
+
+      // console.log(data, "data");
+      let a = [...data.results];
+      setCastsData(a);
+      setCastsPageInfo(data.info);
+      setIsLoading(false);
+    } catch (error) {
+      setCastsData([]);
+      setCastsPageInfo({
+        count: 0,
+        pages: 1,
+        next: null,
+        prev: null,
+      });
+
+      console.log(error);
+      setIsLoading(false);
+    }
+  };
+  const handleSearchInputChange = async (e) => {
+    setSearchInput({ ...searchInput, value: e.target.value });
+    navigate(`/the-cast?name=${e.target.value}&page=1`);
   };
   useLayoutEffect(() => {
-    let { page } = Object.fromEntries([...searchParams]);
+    let { page, name } = Object.fromEntries([...searchParams]);
+    if (name === undefined) {
+      name = "";
+    }
     setPageCount(page);
+    setSearchInput({ ...searchInput, value: name });
 
-    getCastsData(page);
+    getCastsData();
     return () => {};
   }, [searchParams]);
   return (
     <div className=" the-cast-wrapper text-white">
       <Header />
-      <NavigationHeader heading="The Cast" />
-      <CardsContainer castsData={castsData} />
+      <NavigationHeader
+        heading="The Cast"
+        handleSearchInputChange={handleSearchInputChange}
+        searchInput={searchInput}
+      />
+      <CardsContainer
+        castsData={castsData}
+        searchInput={searchInput}
+        loading={loading}
+      />
       <NavPagination
         pageInfo={castsPageInfo}
         handleNavClick={handleNavClick}

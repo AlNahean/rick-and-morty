@@ -4,6 +4,8 @@
   overflow-x: hidden;
   background-image: url("../../../../../../public/MediaAsset/HomePage/BackgroundElements/Background.png");
   padding-top: var(--header-height);
+  background-size: cover;
+  background-position: 80%;
 
   .hero-container {
     height: 100%;
@@ -73,7 +75,18 @@
       .hero-texts-container {
         gap: 2vw;
       }
-
+      .watch-now-btn {
+        font-size: calc(0.8rem + 1vw);
+        color: var(--my-color);
+        .watch-now-icon {
+          margin-top: 4px;
+          font-size: calc(0.8rem + 1vw);
+          color: var(--my-color) !important;
+          path {
+            stroke: currentColor;
+          }
+        }
+      }
       .hero-texts-item {
         // margin-right: 2rem;
         position: relative;

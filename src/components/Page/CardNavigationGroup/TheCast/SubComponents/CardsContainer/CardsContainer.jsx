@@ -3,7 +3,21 @@ import SquareSvgBox from "../../../../Shared/Components/SquareSvgCard/SquareSvgC
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./CardsContainer.scss";
-const CardsContainer = ({ castsData }) => {
+const CardsContainer = ({ castsData, searchInput, loading }) => {
+  if (loading) {
+    return (
+      <div className=" cards-container-wrapper center">
+        <h2>Loading...</h2>
+      </div>
+    );
+  }
+  if (castsData.length < 1) {
+    return (
+      <div className=" cards-container-wrapper center">
+        <h2>No Character Found with the name "{searchInput?.value}"</h2>
+      </div>
+    );
+  }
   return (
     <div className=" cards-container-wrapper">
       <div className=" container">

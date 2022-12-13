@@ -72,13 +72,14 @@
   .search-input {
     background-color: transparent;
     border: 0px solid transparent;
-    color: white;
+    color: var(--my-color);
     width: 120px;
 
     &:focus {
       border: none;
       box-shadow: none;
       background-color: transparent;
+      color: var(--my-color);
     }
   }
 }

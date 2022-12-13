@@ -1,7 +1,21 @@
 import React from "react";
 import RectSvgBox from "../../../../Shared/Components/RectSvgCard/RectSvgCard";
 import { Link } from "react-router-dom";
-const CardsContainer = ({ locationsData }) => {
+const CardsContainer = ({ locationsData, searchInput, loading }) => {
+  if (loading) {
+    return (
+      <div className=" cards-container-wrapper center">
+        <h2>Loading...</h2>
+      </div>
+    );
+  }
+  if (locationsData.length < 1) {
+    return (
+      <div className=" cards-container-wrapper center">
+        <h2>No Location Found with the name "{searchInput?.value}"</h2>
+      </div>
+    );
+  }
   return (
     <div className=" locations-cards-wrapper">
       <div className=" container">

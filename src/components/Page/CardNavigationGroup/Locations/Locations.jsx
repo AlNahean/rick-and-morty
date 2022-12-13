@@ -17,6 +17,8 @@ const Locations = () => {
   const [locationsData, setLocationsData] = useState([]);
   const [locationsPageInfo, setLocationsPageInfo] = useState([]);
   const [pageCount, setPageCount] = useState(1);
+  const [searchInput, setSearchInput] = useState({ value: "" });
+  const [loading, setIsLoading] = useState(false);
   const params = useParams();
 
   const getPageNum = (num) => {
@@ -29,6 +31,11 @@ const Locations = () => {
     }
   };
 
+  const handleSearchInputChange = async (e) => {
+    setSearchInput({ ...searchInput, value: e.target.value });
+    navigate(`/locations?name=${e.target.value}&page=1`);
+  };
+
   const handleNavClick = (state) => {
     if (state === "prev") {
       let cachedCount = pageCount;
@@ -38,7 +45,11 @@ const Locations = () => {
       if (finalCount !== cachedCount) {
         // setPageCount(finalCount);
         // getCastsData(finalCount);
-        navigate(`/locations?page=${finalCount}`);
+        navigate(
+          `/locations?name=${
+            searchInput.value ? searchInput.value : ""
+          }&page=${finalCount}`
+        );
         window.scrollTo(0, 0);
       } else {
         console.log("do nothing");
@@ -51,33 +62,80 @@ const Locations = () => {
       if (finalCount !== cachedCount) {
         // setPageCount(finalCount);
         // getCastsData(finalCount);
-        navigate(`/locations?page=${finalCount}`);
+        navigate(
+          `/locations?name=${
+            searchInput.value ? searchInput.value : ""
+          }&page=${finalCount}`
+        );
         window.scrollTo(0, 0);
       } else {
         console.log("do nothing");
       }
     }
   };
-  const getLocationsData = async (page = 1) => {
-    let { data } = await axios.get(
-      `https://rickandmortyapi.com/api/location?page=${page}`
-    );
-    setLocationsData(data.results);
-    setLocationsPageInfo(data.info);
+  const getLocationsData = async () => {
+    try {
+      setIsLoading(true);
+      let { page, name } = Object.fromEntries([...searchParams]);
+
+      let { data } = await axios.get(
+        `https://rickandmortyapi.com/api/location?${
+          name && `name=${name}&`
+        }page=${page}`
+      );
+      if (data?.error) {
+        setLocationsData([]);
+        setLocationsPageInfo({
+          count: 0,
+          pages: 1,
+          next: null,
+          prev: null,
+        });
+        setIsLoading(false);
+
+        return;
+      }
+      setLocationsData(data.results);
+      setLocationsPageInfo(data.info);
+      setIsLoading(false);
+    } catch (error) {
+      setLocationsData([]);
+      setLocationsPageInfo({
+        count: 0,
+        pages: 1,
+        next: null,
+        prev: null,
+      });
+
+      setIsLoading(false);
+      console.log(error);
+    }
   };
   useLayoutEffect(() => {
-    let { page } = Object.fromEntries([...searchParams]);
+    let { page, name } = Object.fromEntries([...searchParams]);
+    if (name === undefined) {
+      name = "";
+    }
     setPageCount(page);
+    setSearchInput({ ...searchInput, value: name });
+    getLocationsData();
 
-    getLocationsData(page);
     return () => {};
   }, [searchParams]);
 
   return (
     <div className=" locations-wrapper">
       <Header />
-      <NavigationHeader heading="Locations" />
-      <CardsContainer locationsData={locationsData} />
+      <NavigationHeader
+        heading="Locations"
+        handleSearchInputChange={handleSearchInputChange}
+        searchInput={searchInput}
+      />
+      <CardsContainer
+        locationsData={locationsData}
+        searchInput={searchInput}
+        loading={loading}
+      />
       <NavPagination
         pageInfo={locationsPageInfo}
         handleNavClick={handleNavClick}

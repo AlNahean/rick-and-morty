@@ -13,8 +13,8 @@
 
   --rm-card-bg-gradiant: linear-gradient(
     45deg,
-    var(--rm-color-yellowgreen),
-    var(--rm-color-skyblue)
+    var(--rm-color-yellowgreen) 0%,
+    var(--rm-color-skyblue) 70%
   );
   --rm-card-bg-gradiant-2: linear-gradient(
     90deg,
